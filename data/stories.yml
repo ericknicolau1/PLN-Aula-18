@@ -1,0 +1,21 @@
+version: "3.1"
+
+stories:
+- story: saudação + horário
+  steps:
+    - intent: saudacao
+    - action: utter_saudacao
+    - intent: informacao_horario
+    - action: action_check_horario
+
+- story: pergunta sobre endereço
+  steps:
+    - intent: informacao_endereco
+    - action: utter_informacao_endereco
+
+- story: contato após saudação
+  steps:
+    - intent: saudacao
+    - action: utter_saudacao
+    - intent: informacao_contato
+    - action: action_info_contato

@@ -1,0 +1,47 @@
+
+recipe: default.v1
+
+assistant_id: 20240904-172657-pink-browser
+
+
+language: pt
+
+pipeline:
+  - name: SpacyNLP
+    model: pt_core_news_md
+  - name: SpacyTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "bert-base-multilingual-uncased"
+  - name: DIETClassifier
+    epochs: 50
+    learning_rate: 0.001
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 50
+    constrain_similarities: true
+  - name: FallbackClassifier
+    threshold: 0.6
+    ambiguity_threshold: 0.2
+
+
+policies:
+  - name: MemoizationPolicy
+  - name: AugmentedMemoizationPolicy
+    max_history: 5
+  - name: RulePolicy
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true

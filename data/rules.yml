@@ -1,0 +1,22 @@
+version: "3.1"
+
+rules:
+- rule: Responder saudação
+  steps:
+    - intent: saudacao
+    - action: utter_saudacao
+
+- rule: Informar endereço
+  steps:
+    - intent: informacao_endereco
+    - action: utter_informacao_endereco
+
+- rule: Informar contato
+  steps:
+    - intent: informacao_contato
+    - action: action_info_contato
+
+- rule: Informar horário com lógica
+  steps:
+    - intent: informacao_horario
+    - action: action_check_horario

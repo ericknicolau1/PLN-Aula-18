@@ -1,0 +1,33 @@
+version: "3.1"
+
+intents:
+  - saudacao
+  - informacao_horario
+  - informacao_endereco
+  - informacao_contato
+
+entities:
+  - dia
+
+slots:
+  dia:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: dia
+
+responses:
+  utter_saudacao:
+    - text: "Olá! Bem vindo a Erick Tech, como posso te ajudar?"
+
+  utter_informacao_endereco:
+    - text: "Estamos localizados na Rua Benedito Maniglia, 200 - Chico Julio, Franca-SP."
+
+actions:
+  - action_info_contato
+  - action_check_horario
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

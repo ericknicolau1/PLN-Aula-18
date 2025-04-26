@@ -1,0 +1,36 @@
+version: "3.1"
+
+nlu:
+- intent: saudacao
+  examples: |
+    - oi
+    - olá
+    - bom dia
+    - boa tarde
+    - e aí
+    - fala aí
+
+- intent: informacao_horario
+  examples: |
+    - qual o horário de funcionamento?
+    - vocês abrem aos domingos?
+    - que horas vocês funcionam?
+    - quando estão abertos?
+    - vocês abrem na [segunda](dia)?
+    - estão funcionando no [sábado](dia)?
+    - e no [domingo](dia)?
+    - qual o horário na [sexta-feira](dia)?
+
+- intent: informacao_endereco
+  examples: |
+    - qual o endereço da empresa?
+    - onde vocês ficam?
+    - como chego até a Tech Solutions?
+    - onde está localizada a empresa?
+
+- intent: informacao_contato
+  examples: |
+    - qual o telefone da empresa?
+    - como posso entrar em contato?
+    - qual é o e-mail de vocês?
+    - preciso de um número para contato
